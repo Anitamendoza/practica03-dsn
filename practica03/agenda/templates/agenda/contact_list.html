@@ -27,7 +27,7 @@
         <table class="mt-5 table table-hover">
             <thead>
                 <tr>
-                    <th>Avatar</th>
+                    <th>Contactos</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -37,7 +37,7 @@
                     <td>
                         {% if contact.avatar %}
                             <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#contactModal{{ contact.pk }}">
-                                <img src="{{ contact.avatar.url }}" alt="" class="rounded" style="max-width: 200px; max-height: 200px; ">
+                                <img src="{{ contact.avatar.url }}"  class="rounded" style="max-width: 150px; max-height: 150px;">
                             </button>
                             <!-- Modal -->
                             <div class="modal fade" id="contactModal{{ contact.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -48,11 +48,15 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="{{ contact.avatar.url }}" alt="" class="rounded" style="max-width: 200px; max-height: 200px;">
+                                            <img src="{{ contact.avatar.url }}"  class="rounded" style="max-width: 200px; max-height: 200px;">
+                                            <!-- <img src="https://agendacontact.s3.us-east-2.amazonaws.com/contact/mulan-live-action-1534245224_JtQNRuY.jpg" alt="..."> -->
+                                            <!-- <img src="{{ contact.avatar.url }}" alt="" class="rounded" style="max-width: 200px; max-height: 200px;"> -->
 
-                                            <p>Email: {{ contact.email }}</p>
-                                            <p>F. Nacimiento: {{ contact.birth|default:'-' }}</p>
-                                            <p>Celular: {{ contact.phone|default:'-' }}</p>
+                                            <p><strong>Nombre:</strong> {{ contact.name }}</p>
+                                            <p><strong>Apellido: </strong> {{ contact.fullname }}</p>
+                                            <p><strong> Gmail:</strong> {{ contact.email }}</p>
+                                            <p><strong>Fecha de Nacimiento:</strong> {{ contact.birth|default:'-' }}</p>
+                                            <p><strong>Celular:</strong> {{ contact.phone|default:'-' }}</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

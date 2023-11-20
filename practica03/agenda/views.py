@@ -6,6 +6,7 @@ from django.db.models import QuerySet
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from agenda.models import Contact
+from django.views import generic
 
 def base(request):
        return render(request, 'agenda/contact_list.html')

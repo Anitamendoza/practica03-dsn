@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-8h29$vc&_kp*2_&5_)hlj^u#$g5e-brl=r^w%95r@*51l&p5*k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,17 +81,21 @@ WSGI_APPLICATION = 'practica03.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-'''DATABASES = {
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'agenda',
+        'USER':'mysuperuser',
+        'PASSWORD':'mysuperuser',
+        'HOST':'agenda.c8ybchvlvdtg.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
-'''
-import dj_database_url
-DATABASES = {
-    'default': dj_database_url.parse(env('DATABASE_URL'))
-}
+
+# import dj_database_url
+# DATABASES = {
+#     'default': dj_database_url.parse(env('DATABASE_URL'))
+# }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -137,3 +141,24 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# settings.py
+
+
+# settings.py
+
+AWS_ACCESS_KEY_ID = 'AKIAQPAA2WODOWRGUSSP'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'agendacontact'
+AWS_S3_SIGNATURE_NAME = 's3v4'
+AWS_S3_REGION_NAME = 'us-east-2'  
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_S3_VERIFY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_QUERYSTRING_AUTH = False
+
+
+
+
+
